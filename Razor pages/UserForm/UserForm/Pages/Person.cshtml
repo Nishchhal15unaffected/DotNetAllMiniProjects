@@ -1,0 +1,31 @@
+﻿@page
+@model UserForm.Pages.PersonModel
+@{
+	ViewData["Title"] = "User Information page";
+}
+<div>
+	<h1>
+		User Information form
+	</h1>
+	<form method="post">
+		<span>FirstName</span>
+		<input asp-for="FirstName"/>
+		<br/><br/>
+		<span>Lastname</span>
+		<input asp-for="LastName"/>
+		<br/><br/>
+		<span>Active</span>
+		<input asp-for="Active"/>
+		<br/><br/>
+		<button><a href="http://localhost:5020/AddressForm"> Add address </a></button>
+		<button type="submit">Save</button>
+		<br/><br/>
+	</form>
+	<div>
+		<span>Message Box</span>
+		@foreach(var address in Model.messages)
+		{
+			<h3>@address</h3>
+		}
+	</div>
+</div>

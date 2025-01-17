@@ -1,0 +1,60 @@
+﻿<Window x:Class="AddressBook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AddressBook"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Firstname" Grid.Column="0" Grid.Row="0"/>
+            <TextBox Grid.Row="0" Grid.Column="1" MinWidth="100"/>
+            <TextBlock Text="Lastname" Grid.Column="0" Grid.Row="1"/>
+            <TextBox Grid.Row="1" Grid.Column="1" MinWidth="100"/>
+            <TextBlock Text="Active" Grid.Column="0" Grid.Row="2"/>
+            <CheckBox Grid.Row="2" Grid.Column="1" MinWidth="100"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="You can add Address" Grid.Column="0"/>
+            <Button x:Name="AddAddressButton" Grid.Column="2" Click="AddAddressButton_Click">Add Address</Button>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Address List" Grid.Row="0"/>
+            <ListBox Grid.Row="1" x:Name="addressList">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock  Text="{Binding Path=AddressDisplayValue}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</Window>
