@@ -1,0 +1,18 @@
+﻿@page "/FormInput"
+<h3>FormInput</h3>
+<EditForm Model="userModel">
+	<DataAnnotationsValidator/>
+	<ValidationSummary/>
+	<label for="firstName">@nameof(userModel.FirstName)</label>
+	<InputText id="firstName" @bind-Value="userModel.FirstName"/>
+	<label for="lastName">@nameof(userModel.LastName)</label>
+	<InputText id="lastName" @bind-Value="userModel.LastName"/>
+	<label for="active">@nameof(userModel.Active)</label>
+	<InputCheckbox id="active" @bind-Value="userModel.Active"/>
+	<label for="address">@nameof(userModel.Address)</label>
+	<InputText id="address" @bind-Value="userModel.Address"/>
+	<button id="submitButton"><NavLink href ="">Add Data</NavLink></button>
+</EditForm>
+@code {
+	UserModel userModel = new();
+}
